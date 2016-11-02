@@ -70,5 +70,20 @@ namespace HashTable
             // code here
             return 1; // delete this, its just to stop the error
         }
+        
+        // Custom function to check if a number is prime.
+        // (Has been tested and compared to an official list of the first 10 000 prime numbers)
+        // number -> bool (O(n) time complexity)
+        public static bool IsPrime(int number)
+        {
+            if (number <= 1) // zero and one are not prime
+                return false;
+            for (int i = 2; i * i <= number; i++) // only go until i*i, because we are checking if our number is divisible
+            {
+                if (number % i == 0)
+                    return false;   // if number is divisible by i, then it is not prime.
+            }
+            return true;    // if nothing else falls through, the number is prime.
+        }
     }
 }
